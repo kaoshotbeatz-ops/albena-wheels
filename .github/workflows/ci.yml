@@ -22,10 +22,10 @@ jobs:
         run: |
           set -euo pipefail
           base="https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}"
-          curl -sSfL "$base/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz" -o gl.tgz
+          curl -sSfL "$base/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz" -o "gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz"
           curl -sSfL "$base/gitleaks_${GITLEAKS_VERSION}_checksums.txt" -o gl.sum
           grep " gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz\$" gl.sum | sha256sum -c -
-          tar -xzf gl.tgz gitleaks
+          tar -xzf "gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz" gitleaks
           ./gitleaks git --redact --no-banner --verbose .
   lint:
     runs-on: ubuntu-24.04
