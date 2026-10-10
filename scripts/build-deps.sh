@@ -53,7 +53,7 @@ if ! done_flag aom; then
 fi
 HW=()
 if [ "$OS" = Darwin ]; then
-  HW=(--enable-videotoolbox --enable-audiotoolbox)
+  HW=(--enable-videotoolbox --enable-audiotoolbox --disable-xlib --disable-libxcb --disable-sdl2)
 else
   if ! done_flag nvh; then
     d=$(unpack "$(fetch $NVH_URL $NVH_SHA)" nvh); make -C "$d" install PREFIX="$PREFIX" LIBDIR=lib; mark nvh

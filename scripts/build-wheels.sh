@@ -17,7 +17,8 @@ export PKG_CONFIG_PATH="$PREFIX/lib/pkgconfig"
 "$PY" -m pip wheel --no-deps --no-build-isolation --no-binary av -w "$RAW" "$(fetch $AV_URL)"
 # --- OpenCV headless (Apache-2.0), FFmpeg/IPP/GStreamer disabled ---
 export ENABLE_HEADLESS=1 MAKEFLAGS="-j$JOBS"
-export CMAKE_ARGS="-DWITH_FFMPEG=OFF -DWITH_GSTREAMER=OFF -DWITH_IPP=OFF -DWITH_ITT=OFF -DWITH_1394=OFF -DOPENCV_ENABLE_NONFREE=OFF -DCMAKE_BUILD_TYPE=Release"
+export CMAKE_ARGS="-DWITH_FFMPEG=OFF -DWITH_GSTREAMER=OFF -DWITH_IPP=OFF -DWITH_ITT=OFF -DWITH_1394=OFF -DOPENCV_ENABLE_NONFREE=OFF -DCMAKE_BUILD_TYPE=Release -DWITH_AVIF=OFF"
+[ "$OS" = Darwin ] && CMAKE_ARGS="$CMAKE_ARGS -DCMAKE_IGNORE_PREFIX_PATH=/opt/homebrew;/usr/local" && export CMAKE_ARGS
 "$PY" -m pip wheel --no-deps -w "$RAW" "$(fetch $CV_URL)" -v
 shift 3
 "$@"   # repair command (auditwheel / delocate) is supplied by the caller

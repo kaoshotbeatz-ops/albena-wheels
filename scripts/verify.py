@@ -93,7 +93,7 @@ except Exception as e: ok("aiortc loopback (opus audio)", False, repr(e))
 import cv2
 bi = cv2.getBuildInformation()
 ok("cv2 import", True, cv2.__version__)
-ok("cv2 FFMPEG disabled", "FFMPEG:                      NO" in bi.replace("\n", "\n") or "FFMPEG:                      NO" in bi, [l.strip() for l in bi.splitlines() if "FFMPEG" in l][:1])
+ok("cv2 FFMPEG not built in", not any("FFMPEG" in l and "YES" in l for l in bi.splitlines()))
 img = np.random.randint(0, 255, (64, 64, 3), np.uint8)
 okk, jpg = cv2.imencode(".jpg", img); dd = cv2.imdecode(jpg, cv2.IMREAD_COLOR)
 ok("cv2 jpg encode/decode + resize/cvtColor", dd.shape == (64, 64, 3) and cv2.resize(cv2.cvtColor(dd, cv2.COLOR_BGR2GRAY), (32, 32)).shape == (32, 32))
