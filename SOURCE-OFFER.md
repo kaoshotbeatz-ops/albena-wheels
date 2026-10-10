@@ -1,6 +1,6 @@
 # Written offer of corresponding source (LGPL-3.0 sec. 4/6)
 
-The Albena wheels contain FFmpeg 8.1.3 (LGPL-3.0-or-later) and other libraries listed in `LICENSES.md`.
+The Albena wheels and the albena-ffmpeg CLI tarballs contain FFmpeg 8.1.3 (LGPL-3.0-or-later) and other libraries listed in `LICENSES.md`.
 For at least **three (3) years** from the date you received the binaries, and for as long as we offer spare parts or support for them, we will give any third party, on request, the complete corresponding source for those libraries, including the build scripts and patches (no patches are currently applied). Request: write to omar@dbaomarhuertasllc.com. Charge: no more than the cost of physical distribution (none for download). We also keep this repository (`scripts/`, `patches/`, `LICENSES.md`) with every release.
 
 ## Upstream sources (exact, sha256 in `scripts/versions.env`)

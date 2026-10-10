@@ -5,3 +5,6 @@ Build: `scripts/linux-inner.sh` in `quay.io/pypa/manylinux_2_28_x86_64` (rsync r
 Install ONLY with `pip install --no-index --find-links dist av==17.1.0 opencv-python-headless==4.14.0.94` (PyPI has same/newer names; ours carry no local-version tag).
 Hardware decode: Linux `HWAccel("cuda")` (NVDEC) or `h264_cuvid`; macOS `HWAccel("videotoolbox")`; fall back to go2rtc/camera JPEG snapshots when no hw decoder. Albena's cv2 use is imdecode/imencode/resize/etc. only (no VideoCapture); RTSP uses the `ffmpeg` subprocess (camera_registry.py) so it needs an LGPL `ffmpeg` binary (built in `work/*/prefix/bin`, not yet packaged).
 Updating: bump `scripts/versions.env` (+sha256), rerun; ~1h Linux, ~40 min macOS. PyAV major must match FFmpeg major (libavcodec 62 = FFmpeg 8.x); Cython pinned <3.2 for PyAV 17.1.
+
+## ffmpeg / ffprobe CLI tarballs
+`scripts/package-cli-linux.sh <workdir> <out>` (needs patchelf) and `scripts/package-cli-macos.sh` bundle the same LGPL FFmpeg build as self-contained CLI tarballs (`albena-ffmpeg-<ver>-linux-x86_64`, `-macos-arm64`) with LICENSES.md and SOURCE-OFFER.md. Linux uses RUNPATH `$ORIGIN/../lib`; macOS uses `@rpath`. The macOS product uses the albena-video Swift helper; its CLI is optional.
