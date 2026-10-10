@@ -1,0 +1,5 @@
+src/*.tar.*
+build/
+work/
+dist/*.whl
+dist/*.tar.gz

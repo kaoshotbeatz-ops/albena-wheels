@@ -1,0 +1,2 @@
+av-17.1.0.tar.gz https://files.pythonhosted.org/packages/5e/e3/477fa20578c284abeda08d91b63ee9abaebc93445d8feeb989d3d444bae1/av-17.1.0.tar.gz 7f1e71ff621b66253333926f948e00faae11d855b2442133c65128bca64cdeb3
+opencv_python_headless-4.14.0.94.tar.gz https://files.pythonhosted.org/packages/67/8a/51ff1c6287be0b6cd3070cf095875da4ff7d6eda38507e6ada5608786a78/opencv_python_headless-4.14.0.94.tar.gz 4afa2ea1214453648be88259f035712454faa9039b686de7753569ba8eec1577
